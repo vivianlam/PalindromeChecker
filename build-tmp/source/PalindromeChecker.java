@@ -31,36 +31,22 @@ public void setup()
     }
   }
 }
-public String RemoveNonAlpha(String str)
-{
-  String AlphaOnly = "";
-  for (int i = 0; i < str.length(); i++)
-  {
-    if (str.charAt(i)!= ' ' && str.charAt(i)!= ',' && str.charAt(i) != '!' && str.charAt(i) != '\'')
-    {
-      AlphaOnly= AlphaOnly + str.charAt(i);
-    }
-  }
-  return AlphaOnly;
-}
+
 
 public boolean palindrome(String word)
 {
-  word=RemoveNonAlpha(word.toLowerCase());
+  word=word.toLowerCase();
+  String temp="";
+  for(int i=0; i<word.length(); i++)
+  if(word.charAt(i)!=' ' && Character.isLetter(word.charAt(i)))
+  temp=temp+word.charAt(i);
   int first=0;
-  int last=word.length()-1;
+  int last=temp.length()-1;
   while(first<last)
   {
-    if(word.charAt(first)!=(word.charAt(last)))
+    if(temp.charAt(first)!=(temp.charAt(last)))
     {
-      if(word.charAt(first)!= ',' || word.charAt(first)!= '.' || word.charAt(first)!= ' ' || word.charAt(first)!= '!')
       return false;
-      else 
-      first++;
-    if(word.charAt(last)!= ',' || word.charAt(last)!= '.' || word.charAt(last)!= ' ' || word.charAt(last)!= '!')
-      return false;
-      else 
-      last++;
     }
     else
     {
