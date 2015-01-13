@@ -26,18 +26,22 @@ public boolean palindrome(String word)
   temp=temp+word.charAt(i);
   int first=0;
   int last=temp.length()-1;
-  while(first<last)
+  while(first<=last)
   {
-    if(temp.charAt(first)!=(temp.charAt(last)))
-    {
-      return false;
-    }
-    else
+    if(temp.charAt(first)==(temp.charAt(last)))
     {
       first++;
       last--;
+      if(last-first<1)
+      {
+        return true;
+      }
+    }
+    else
+    {
+      return false;
     } 
   }
-  return true;
+  return false;
 }
 
